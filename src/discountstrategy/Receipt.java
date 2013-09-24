@@ -8,9 +8,11 @@ package discountstrategy;
  *
  * @author skaufman7
  */
-public interface DiscountStrategy {
+public class Receipt {
     
-    public double getDiscount(double price, int qty);
+    
+    
+    
     
     
 }

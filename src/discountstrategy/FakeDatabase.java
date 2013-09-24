@@ -8,9 +8,6 @@ package discountstrategy;
  *
  * @author skaufman7
  */
-public interface DiscountStrategy {
-    
-    public double getDiscount(double price, int qty);
-    
+public class FakeDatabase {
     
 }
