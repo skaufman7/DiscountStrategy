@@ -12,6 +12,8 @@ public class CashRegister {
     
     private Receipt receipt;    
     
+    
+    
     public void startSale(String customerID){
     receipt = new Receipt(customerID);
         
