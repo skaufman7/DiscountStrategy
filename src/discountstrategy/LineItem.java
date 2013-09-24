@@ -17,6 +17,10 @@ public class LineItem {
     private double lineDiscount;
 
     public LineItem(Product product, int qty) {
+        
+        //change this to allow the product id to be passed in and return the
+        //product oject based on info in the fake db
+        
         this.product = product;
         this.qty = qty;
     
@@ -40,6 +44,22 @@ private final void calcLinePrice(){
 private final void calcLineDiscount(int qty, double price){
     lineDiscount = product.getDiscount(price, qty);
 }    
+
+    public double getLinePrice() {
+        return linePrice;
+    }
+
+    public void setLinePrice(double linePrice) {
+        this.linePrice = linePrice;
+    }
+
+    public double getLineDiscount() {
+        return lineDiscount;
+    }
+
+    public void setLineDiscount(double lineDiscount) {
+        this.lineDiscount = lineDiscount;
+    }
     
     
     

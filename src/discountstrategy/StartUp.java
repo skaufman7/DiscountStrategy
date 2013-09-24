@@ -8,13 +8,12 @@ package discountstrategy;
  *
  * @author skaufman7
  */
-public class CashRegister {
+public class StartUp {
     
-    private Receipt receipt;    
+    public static void main(String[] args) {
+        CashRegister cr = new CashRegister();
+    }
     
-    public void startSale(String customerID){
-    receipt = new Receipt(customerID);
-        
-}
+    
     
 }
