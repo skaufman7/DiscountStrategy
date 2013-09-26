@@ -13,20 +13,20 @@ public class Receipt {
     private FakeDatabase db;
     private LineItem[] lineItems = new LineItem[0];
     private Customer customer;
-    private String customerID;
-    private static int lineItemIndex = 0; //counts the total number of line items that the
-                                        //recipt object has added.
-    
+
     
     public Receipt(String customerID) {
         db = new FakeDatabase();
-        this.customerID = customerID;
         customer = db.findCustomer(customerID);//validation, maybe move into a local method
         
        
         
         
     }
+    
+//    public void validateCustomerID(String custID) {
+//        if(custID == nul)
+//    }
        
         
     public LineItem[] getLineItems() {
@@ -45,13 +45,13 @@ public class Receipt {
         this.customer = customer;
     }
 
-    public String getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
-    }
+//    public String getCustomerID() {
+//        return customerID;
+//    }
+//
+//    public void setCustomerID(String customerID) {
+//        this.customerID = customerID;
+//    }
 
     
    
@@ -60,6 +60,9 @@ public class Receipt {
     
     
     public void addLineItem(String productID, int qty){
+        if(productID == null || productID.length() == 0 || qty < 0) {
+            throw new IllegalArgumentException("All fields are required.");
+        }
         
         LineItem lineitem = new LineItem(db.findProduct(productID),qty);
         
@@ -74,6 +77,7 @@ public class Receipt {
     }
     
     public void outputReciept(){
+        double totalCost = 0;
         
         System.out.println("Hello "+customer.getCustomerName());
         System.out.println("");
@@ -84,10 +88,9 @@ public class Receipt {
                     +"\t"+l.getLinePrice());
             System.out.println("");
             
-            
-            
-            
+         totalCost += l.getLinePrice();
         }
+        System.out.println("Grand Total: "+totalCost);
     }
     
     
