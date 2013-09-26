@@ -11,7 +11,6 @@ package discountstrategy;
 public class LineItem {
     
     private Product product;
-    private String productId;
     private int qty;
     private double linePrice;
     private double lineDiscount;
@@ -25,8 +24,9 @@ public class LineItem {
         this.qty = qty;
     
     
-    calcLinePrice();
+    
     calcLineDiscount(qty,product.getPrice());
+    calcLinePrice();
     }
        
     public Product getProduct() {
@@ -38,7 +38,7 @@ public class LineItem {
     }
     
 private final void calcLinePrice(){
-    linePrice = qty * product.getPrice();
+    linePrice = (qty * product.getPrice())-lineDiscount;
 }    
     
 private final void calcLineDiscount(int qty, double price){

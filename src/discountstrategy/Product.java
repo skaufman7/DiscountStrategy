@@ -12,12 +12,14 @@ public class Product {
     
     private String productId;
     private double price;
+    private String desc;
     private DiscountStrategy discount;
 
-    public Product(String productId, double price, DiscountStrategy discount) {
+    public Product(String productId, double price, DiscountStrategy discount,String desc) {
         this.productId = productId;
         this.price = price;
         this.discount = discount;
+        this.desc = desc;
     }
 
     
@@ -33,6 +35,14 @@ public class Product {
 
     public double getPrice() {
         return price;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public void setPrice(double price) {

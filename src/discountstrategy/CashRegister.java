@@ -19,4 +19,13 @@ public class CashRegister {
         
 }
     
+    public void addItemToSale(String productID,int qty){
+    
+        receipt.addLineItem(productID, qty);
+        
+}
+   public void printReceipt(){
+       receipt.outputReciept();
+   }
+    
 }
