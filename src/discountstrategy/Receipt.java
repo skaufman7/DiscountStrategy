@@ -4,6 +4,10 @@
  */
 package discountstrategy;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author skaufman7
@@ -13,12 +17,14 @@ public class Receipt {
     private FakeDatabase db;
     private LineItem[] lineItems = new LineItem[0];
     private Customer customer;
-
+    private Date date;
+    private Calendar cal;
+    String formattedDate;
     
     public Receipt(String customerID) {
         db = new FakeDatabase();
         customer = db.findCustomer(customerID);//validation, maybe move into a local method
-        
+        createFormattedDateString();
        
         
         
@@ -28,7 +34,15 @@ public class Receipt {
 //        if(custID == nul)
 //    }
        
-        
+    private void createFormattedDateString(){
+        cal = Calendar.getInstance();
+        date = cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM-dd-yyyy  hh:mm:ssaa"); //
+        formattedDate = sdf.format(date);
+    }
+            
+    
+    
     public LineItem[] getLineItems() {
         return lineItems;
     }
@@ -78,7 +92,8 @@ public class Receipt {
     
     public void outputReciept(){
         double totalCost = 0;
-        
+       
+        System.out.println(formattedDate);
         System.out.println("Hello "+customer.getCustomerName());
         System.out.println("");
         

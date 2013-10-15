@@ -11,8 +11,14 @@ package discountstrategy;
 public class StartUp {
     
     public static void main(String[] args) {
-        CashRegister cr = new CashRegister();
+        
     
+        CashRegisterFactory crf = CashRegisterFactory.getInstance();
+        CashRegister cr = crf.getCashRegister();
+        
+
+        
+        
         cr.startSale("002");
         cr.addItemToSale("0001", 13);
         cr.addItemToSale("0002", 7);
